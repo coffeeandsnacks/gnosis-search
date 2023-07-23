@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gnosischain Address Search</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+</head>
+<body>
+	<div style="text-align: center;" class="fonty">
+    	<h1>Wallet Address Search</h1>
+    	<form action="/" method="post">
+        	<label for="wallet_address">Ask any question about any wallet for Gnosischain:</label><br>
+        	<textarea type="text" id="user_question" name="user_question" rows="10" cols="45" required placeholder= "what is the amount of eth transfered by this address 0x... ?,
+how many transactions did this address do 0x... ?" ></textarea>
+			<br>
+			<input type="submit" value="Search">
+    	</form>
+    	{% if result %}
+			<br>
+        	<h2>Your Question:</h2>
+			<br>
+			<p>{{ user_question }}</p>
+			<br>
+			<h2>Your Answer:</h2>
+        	<p>{{ result }}</p>
+    	{% elif error %}
+        	<p>{{ error }}</p>
+    	{% endif %}
+	</div>
+</body>
+</html>
